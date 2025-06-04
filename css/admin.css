@@ -573,3 +573,91 @@ button:hover {
     width: 200px;
   }
 }
+
+.view-pending-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.view-pending-btn:hover {
+  background-color: #45a049;
+}
+
+.blog-item {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.blog-info {
+  flex: 1;
+}
+
+.blog-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.blog-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-btn, .reject-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.approve-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.approve-btn:hover {
+  background-color: #45a049;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reject-btn:hover {
+  background-color: #da190b;
+}
+
+.no-blogs {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin: 20px 0;
+}

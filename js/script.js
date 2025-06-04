@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // CLIENT DASHBOARD FUNCTIONALITY
-  if (currentPage === 'client-dashboard.html') {
+  if (currentPage === 'client-dashboard.html' || currentPage === 'write-blog.html') {
     // Redirect if not logged in
     if (!currentUser) {
       window.location.href = 'login.html';
@@ -100,9 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').value;
+        const category = document.getElementById('category').value;
+        const tags = document.getElementById('tags').value;
         
-        if (!title || !content) {
-          alert('Please fill in all fields');
+        if (!title || !content || !category) {
+          alert('Please fill in all required fields');
           return;
         }
         
@@ -111,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
           author: currentUser.username,
           title,
           content,
+          category,
+          tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
           status: 'pending',
           date: new Date().toISOString(),
           createdAt: new Date().toISOString(),
@@ -136,35 +140,37 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear form
         document.getElementById('title').value = '';
         document.getElementById('content').value = '';
+        document.getElementById('category').value = '';
+        document.getElementById('tags').value = '';
         
-        // Update display
-        renderBlogs();
+        // Redirect to my blogs page
+        window.location.href = 'my-blogs.html';
       });
     }
     
     // Initialize client dashboard
-    renderBlogs();
-    
-    // Add event listeners for client dashboard controls
-    const sortOrder = document.getElementById('sort-order');
-    const searchBar = document.getElementById('search-bar');
-    const statusFilter = document.getElementById('status-filter');
-    
-    if (sortOrder) sortOrder.addEventListener('change', renderBlogs);
-    if (searchBar) searchBar.addEventListener('input', renderBlogs);
-    if (statusFilter) statusFilter.addEventListener('change', renderBlogs);
+    if (currentPage === 'client-dashboard.html') {
+      renderBlogs();
+      
+      // Add event listeners for client dashboard controls
+      const sortOrder = document.getElementById('sort-order');
+      const searchBar = document.getElementById('search-bar');
+      const statusFilter = document.getElementById('status-filter');
+      
+      if (sortOrder) sortOrder.addEventListener('change', renderBlogs);
+      if (searchBar) searchBar.addEventListener('input', renderBlogs);
+      if (statusFilter) statusFilter.addEventListener('change', renderBlogs);
+    }
   }
   
   // ADMIN DASHBOARD FUNCTIONALITY
-  if (currentPage === 'admin-dashboard.html') {
+  if (currentPage === 'admin-dashboard.html' || currentPage === 'admin-pending-blogs.html') {
     // Redirect if not logged in or not admin
     if (!currentUser) {
       window.location.href = 'login.html';
       return;
     }
     
-    // YEH LINE BADLO:
-    // if (!currentUser.isAdmin) {
     if (currentUser.role !== "admin") {
       alert('You do not have admin privileges');
       window.location.href = 'login.html';
@@ -172,7 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Initialize admin dashboard
-    renderPendingBlogs();
+    if (currentPage === 'admin-dashboard.html') {
+      loadDashboardStats();
+      loadRecentActivity();
+    } else if (currentPage === 'admin-pending-blogs.html') {
+      renderPendingBlogs();
+    }
   }
   
   // HOME PAGE FUNCTIONALITY
@@ -399,6 +410,7 @@ function renderPendingBlogs() {
           <h3>${blog.title}</h3>
           <p>${blog.content}</p>
           <p>Author: ${blog.author}</p>
+          <p>Category: ${blog.category || 'Uncategorized'}</p>
           <p>Date: ${new Date(blog.date || blog.createdAt).toLocaleDateString()}</p>
         </div>
         <div class="blog-actions">
