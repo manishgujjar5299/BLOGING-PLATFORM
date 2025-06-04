@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-profile">
+                <img src="images/avatar.png" alt="Admin Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h3 id="admin-name">Admin Name</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-pending-blogs.html">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Blogs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="admin-categories.html">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search categories...">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">0</span>
+                    </button>
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Categories Section -->
+            <section class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Category Management</h2>
+                    <button class="add-category-btn">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+                
+                <div class="categories-grid" id="categories-list">
+                    <!-- Categories will be loaded here dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Blogging Platform</title>
+    <link rel="stylesheet" href="css/client.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-profile">
+                <img src="images/avatar.png" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h3 id="user-name">User Name</h3>
+                    <p>Client</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="client-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="write-blog.html">
+                        <i class="fas fa-pen"></i>
+                        <span>Write Blog</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-blogs.html">
+                        <i class="fas fa-blog"></i>
+                        <span>My Blogs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="drafts.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Drafts</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">0</span>
+                    </button>
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Profile Section -->
+            <section class="dashboard-section active">
+                <div class="section-header">
+                    <h2>My Profile</h2>
+                </div>
+                <div class="profile-container">
+                    <div class="profile-section">
+                        <h3>Profile Information</h3>
+                        <form id="profile-form" class="blog-form">
+                            <div class="form-group">
+                                <label for="display-name">Display Name</label>
+                                <input type="text" id="display-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bio">Bio</label>
+                                <textarea id="bio" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-blog-btn">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="profile-section">
+                        <h3>Change Password</h3>
+                        <form id="password-form" class="blog-form">
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input type="password" id="new-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-blog-btn">
+                                    <i class="fas fa-key"></i> Update Password
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

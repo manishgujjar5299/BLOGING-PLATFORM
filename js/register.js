@@ -1,0 +1,3 @@
+// ...existing registration logic...
+// Jab registration successful ho:
+window.location.href = "login.html";

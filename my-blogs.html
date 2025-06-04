@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blogs - Blogging Platform</title>
+    <link rel="stylesheet" href="css/client.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-profile">
+                <img src="images/avatar.png" alt="User Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h3 id="user-name">User Name</h3>
+                    <p>Client</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="client-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="write-blog.html">
+                        <i class="fas fa-pen"></i>
+                        <span>Write Blog</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="my-blogs.html">
+                        <i class="fas fa-blog"></i>
+                        <span>My Blogs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="drafts.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Drafts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-bar" placeholder="Search your blogs...">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">0</span>
+                    </button>
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- My Blogs Section -->
+            <section class="dashboard-section active">
+                <div class="section-header">
+                    <h2>My Blogs</h2>
+                </div>
+                <div class="blog-controls">
+                    <div class="controls-row">
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                        <select id="sort-order">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="blog-list-container">
+                    <ul id="my-blog-list" class="blog-list">
+                        <!-- Blogs will be loaded here dynamically -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

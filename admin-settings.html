@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="user-profile">
+                <img src="images/avatar.png" alt="Admin Avatar" class="user-avatar">
+                <div class="user-info">
+                    <h3 id="admin-name">Admin Name</h3>
+                    <p>Administrator</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="admin-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-pending-blogs.html">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Blogs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-users.html">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-categories.html">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="admin-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="top-bar-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">0</span>
+                    </button>
+                    <button id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Settings Section -->
+            <section class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="settings-section">
+                        <h3>Profile Settings</h3>
+                        <form id="profile-settings-form">
+                            <div class="form-group">
+                                <label>Display Name</label>
+                                <input type="text" id="admin-display-name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="admin-email">
+                            </div>
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Notification Settings</h3>
+                        <form id="notification-settings-form">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="email-notifications">
+                                    Email Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="blog-notifications">
+                                    Blog Approval Notifications
+                                </label>
+                            </div>
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

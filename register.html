@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Sign-In SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+  <!-- Facebook SDK -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  
+  <!-- Twitter SDK -->
+  <script async src="https://platform.twitter.com/widgets.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-box">
+    <h2>Sign Up</h2>
+
+    <form id="register-form">
+      <input type="text" id="username" placeholder="Username" required />
+      <!-- <input type="email" placeholder="Email" required /> -->
+      <input type="password" id="password" placeholder="Password" required />
+
+      <!-- ✅ Admin Checkbox Added -->
+      <label class="admin-checkbox">
+        <input type="checkbox" id="isAdmin" />
+        Register as Admin
+      </label>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="social-register">
+      <p>Or sign up with:</p>
+      <div class="social-buttons">
+        <button class="social-btn google" onclick="signInWithGoogle()">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn facebook" onclick="signInWithFacebook()">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn twitter" onclick="signInWithTwitter()">
+          <i class="fab fa-twitter"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h2>Hello, Friend!</h2>
+    <p>Register with your personal details to use all of site features</p>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

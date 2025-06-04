@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Platform - Home</title>
+  <link rel="stylesheet" href="css/indexx.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Blog Platform</h1>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  <div class="container">
+    <section class="welcome-section">
+      <div class="welcome-content">
+        <h1 class="welcome-text">Welcome to Our Blog Platform</h1>
+        <p class="welcome-subtitle">Share your thoughts, explore new ideas, and connect with like-minded individuals in our vibrant community.</p>
+        <div class="cta-buttons">
+          <a href="login.html" class="cta-button primary">Login Now</a>
+          <a href="register.html" class="cta-button secondary">Create Account</a>
+        </div>
+        <section class="latest-blogs">
+          <h2 class="section-title">Latest Blogs</h2>
+          <ul id="public-blog-list" class="blog-list">
+            <!-- Blog posts will be loaded here -->
+          </ul>
+        </section>
+      </div>
+      <div class="welcome-mobile">
+        <div class="mobile-frame">
+          <div class="mobile-notch"></div>
+          <div class="mobile-screen" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+            <div id="mobileFeatureSlider" class="mobile-slider"></div>
+          </div>
+          <div class="mobile-btn"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 Blog Platform. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
