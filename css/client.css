@@ -20,6 +20,7 @@
 body {
   background: linear-gradient(120deg, #f4f7fc 60%, #e3d4f2 100%);
   color: #333;
+  width: 100%;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--light-gray);
@@ -538,19 +539,44 @@ main {
 
 .stat-card i {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: #4a90e2;
 }
 
 .stat-info h3 {
   font-size: 0.9rem;
-  color: var(--dark-gray);
+  color: #2c3e50;
   margin-bottom: 5px;
 }
 
 .stat-info p {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: #2c3e50;
+}
+
+.recent-activity {
+  margin-top: 30px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.activity-icon i {
+  font-size: 1.5rem;
+  color: #4a90e2;
+}
+
+.activity-details p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.activity-details small {
+  color: #888;
 }
 
 /* Blog Form Styles */

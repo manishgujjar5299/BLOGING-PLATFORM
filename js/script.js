@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize client dashboard
     if (currentPage === 'client-dashboard.html') {
+      loadClientDashboardStats();
       renderBlogs();
       
       // Add event listeners for client dashboard controls
@@ -1121,4 +1122,33 @@ function showNotification(message, type = 'success') {
     setTimeout(() => {
         notification.remove();
     }, 3000);
+}
+
+function loadClientDashboardStats() {
+  const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (!currentUser) return;
+
+  const userBlogs = blogs.filter(blog => blog.author === currentUser.username);
+
+  document.getElementById('total-blogs').textContent = userBlogs.length;
+  document.getElementById('approved-blogs').textContent = userBlogs.filter(b => b.status === 'approved').length;
+  document.getElementById('pending-blogs').textContent = userBlogs.filter(b => b.status === 'pending').length;
+  document.getElementById('total-views').textContent = userBlogs.reduce((sum, b) => sum + (b.views || 0), 0);
+
+  // Recent Activity
+  const activityList = document.getElementById('activity-list');
+  const recentActivities = userBlogs
+    .sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt))
+    .slice(0, 5)
+    .map(blog => `
+      <div class="activity-item">
+        <div class="activity-icon"><i class="fas fa-blog"></i></div>
+        <div class="activity-details">
+          <p>${blog.title}</p>
+          <small>${blog.status} - ${new Date(blog.date || blog.createdAt).toLocaleDateString()}</small>
+        </div>
+      </div>
+    `);
+  activityList.innerHTML = recentActivities.join('');
 }

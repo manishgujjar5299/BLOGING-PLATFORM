@@ -10,6 +10,7 @@
     background: linear-gradient(120deg, #f4f7fc 60%, #e3d4f2 100%);
     color: #333;
     min-height: 100vh;
+    width: 100%;
   }
   
   h1, h2 {
