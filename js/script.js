@@ -146,6 +146,50 @@ document.addEventListener('DOMContentLoaded', () => {
         // Redirect to my blogs page
         window.location.href = 'my-blogs.html';
       });
+
+      // Save as Draft functionality
+      const saveDraftBtn = document.querySelector('.save-draft-btn');
+      if (saveDraftBtn) {
+        saveDraftBtn.addEventListener('click', function(event) {
+          event.preventDefault();
+          const title = document.getElementById('title').value;
+          const content = document.getElementById('content').value;
+          const category = document.getElementById('category').value;
+          const tags = document.getElementById('tags').value;
+
+          if (!title || !content || !category) {
+            alert('Please fill in all required fields to save as draft');
+            return;
+          }
+
+          const newDraft = {
+            id: Date.now().toString(),
+            author: currentUser.username,
+            title,
+            content,
+            category,
+            tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
+            status: 'draft',
+            date: new Date().toISOString(),
+            createdAt: new Date().toISOString(),
+            approvedAt: null,
+            rejectionReason: null
+          };
+
+          let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+          blogs.push(newDraft);
+          localStorage.setItem('blogs', JSON.stringify(blogs));
+
+          alert('Blog saved as draft!');
+          // Clear form
+          document.getElementById('title').value = '';
+          document.getElementById('content').value = '';
+          document.getElementById('category').value = '';
+          document.getElementById('tags').value = '';
+          // Optionally redirect to drafts page
+          window.location.href = 'drafts.html';
+        });
+      }
     }
     
     // Initialize client dashboard
@@ -276,6 +320,43 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
       }, 2000);
     });
+  }
+
+  // Render Drafts Functionality
+  function renderDrafts() {
+    const list = document.getElementById('drafts-list');
+    if (!list) return;
+    list.innerHTML = '';
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) return;
+    let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    let drafts = blogs.filter(blog => blog.author === currentUser.username && blog.status === 'draft');
+    if (drafts.length === 0) {
+      list.innerHTML = '<p>No drafts found.</p>';
+      return;
+    }
+    drafts.forEach(draft => {
+      const li = document.createElement('li');
+      li.className = 'blog-item';
+      li.innerHTML = `
+        <div class="blog-info">
+          <h3>${draft.title}</h3>
+          <p>${draft.content}</p>
+          <p>Category: ${draft.category}</p>
+          <p>Created: ${new Date(draft.createdAt).toLocaleDateString()}</p>
+        </div>
+        <div class="blog-actions">
+          <button onclick="editBlog('${draft.id}')" class="edit">Edit</button>
+          <button onclick="deleteBlog('${draft.id}')" class="delete">Delete</button>
+        </div>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  // Call renderDrafts on drafts.html
+  if (window.location.pathname.split('/').pop() === 'drafts.html') {
+    document.addEventListener('DOMContentLoaded', renderDrafts);
   }
 });
 
