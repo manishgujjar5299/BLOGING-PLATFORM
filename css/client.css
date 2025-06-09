@@ -222,7 +222,7 @@ main {
 }
 
 /* Admin Styles */
-#pending-blogs {
+/* #pending-blogs {
   margin: 30px;
 }
 
@@ -237,7 +237,7 @@ main {
   margin: 10px 0;
   border-radius: 5px;
   border: 1px solid #ddd;
-}
+} */
 
 /* Client Styles */
 #client-dashboard {
